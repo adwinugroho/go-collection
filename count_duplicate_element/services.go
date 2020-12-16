@@ -6,10 +6,10 @@ func CountDuplicateElement(list []string) map[string]int {
 	DuplicateElement := make(map[string]int)
 	// looping list
 	for _, item := range list {
-		// check if element found in map
+		// check if keys found in map
 		_, exist := DuplicateElement[item]
 		if exist {
-			DuplicateElement[item] += 1 // iteration
+			DuplicateElement[item] += 1 // iteration element
 		} else {
 			DuplicateElement[item] = 1
 		}
