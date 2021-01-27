@@ -63,18 +63,53 @@ func questionProblem() []string {
 	return newItem
 }
 
-func main() {
-	var correct int = 0
-	var value string
-	question := questionProblem()
-	answer := answerQuestion()
-	for i, item := range question {
-		fmt.Printf("question number %d. %s?, ", i+1, item)
-		fmt.Print("your answer= ")
-		fmt.Scanln(&value)
-		if value == answer[i] {
-			correct++
+func CSVToMap(reader io.Reader) []map[string]string {
+	r := csv.NewReader(reader)
+	rows := []map[string]string{}
+	var header []string
+	for {
+		record, err := r.Read()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			log.Fatal(err)
+		}
+		if header == nil {
+			header = record
+		} else {
+			dict := map[string]string{}
+			for i := range header {
+				dict[header[i]] = record[i]
+			}
+			rows = append(rows, dict)
 		}
 	}
-	fmt.Printf("You scored %d out of %d.\n", correct, len(question))
+	return rows
+}
+
+func main() {
+	// var correct int = 0
+	// var value string
+	// question := questionProblem()
+	// answer := answerQuestion()
+	// for i, item := range question {
+	// 	fmt.Printf("question number %d. %s?, ", i+1, item)
+	// 	fmt.Print("your answer= ")
+	// 	fmt.Scanln(&value)
+	// 	if value == answer[i] {
+	// 		correct++
+	// 	}
+	// }
+	// fmt.Printf("You scored %d out of %d.\n", correct, len(question))
+	f, _ := os.Open("problem.csv")
+	tes := CSVToMap(f)
+	// fmt.Println(tes)
+	for _, elemets := range tes {
+		fmt.Println(elemets["phone"])
+		// for key, value := range elemets {
+		// 	fmt.Println(key)
+		// 	fmt.Println(value)
+		// }
+	}
 }
