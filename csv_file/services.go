@@ -8,8 +8,6 @@ import (
 	"strconv"
 )
 
-type interfaceSvcCsvFile struct{}
-
 type User struct {
 	ID       string `json:"id"`
 	Username string `json:"username"`
@@ -18,11 +16,7 @@ type User struct {
 
 var users []User
 
-func GetSvcCsvFile() *interfaceSvcCsvFile {
-	return &interfaceSvcCsvFile{}
-}
-
-func (service *interfaceSvcCsvFile) CreateNewCsvFile() error {
+func CreateNewCsvFile() error {
 
 	users = append(users, User{ID: "1", Username: "Pangeran", Email: "bangpange@gmail.com"})
 	users = append(users, User{ID: "2", Username: "Sihaan", Email: "bangsihaan@gmail.com"})

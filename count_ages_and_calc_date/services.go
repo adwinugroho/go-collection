@@ -1,4 +1,4 @@
-package main
+package count_ages_and_calc_date
 
 import (
 	"log"
