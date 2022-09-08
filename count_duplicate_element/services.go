@@ -1,6 +1,6 @@
 package count_duplicate_element
 
-// ex: list [hello, how, are, today, you, fine]
+// ex: list [hello, how, are, you, today, you, fine]
 // result gonna be like hello: 1, how: 1, are: 1 today: 1 and you: 2
 func CountDuplicateElement(list []string) map[string]int {
 	duplicateElement := make(map[string]int)
