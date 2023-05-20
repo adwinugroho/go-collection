@@ -7,4 +7,5 @@ require (
 	github.com/dustin/go-humanize v1.0.0
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/google/go-licenses v1.2.1 // indirect
+	github.com/h2non/filetype v1.1.3 // indirect
 )
