@@ -1,1 +1,0 @@
-contoh get (download file) dan write file ke sisten file
